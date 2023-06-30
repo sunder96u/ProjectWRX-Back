@@ -16,6 +16,18 @@ const projectSchema = new Schema(
     taskId: {
       type: Schema.Types.ObjectId,
       ref: 'Task' 
+    },
+    dateCreated: {
+      type: Date,
+      required: false,
+    },
+    dateDue: {
+      type: Date,
+      required: true,
+    },
+    teamLeader: {
+      type: Schema.Types.ObjectId,
+      ref: 'Team Leader'
     }
   },
   { timestamps: true }
