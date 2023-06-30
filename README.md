@@ -1,2 +1,2 @@
-# ProjectNexus-Back
-Backend for ProjectNexus
+# ProjectWRX-Back
+Backend for ProjectWRX
