@@ -13,4 +13,4 @@ Router.post('/create', controller.createUser)
 
 Router.put('/:id', controller.updateUser)
 
-Router.post('/:id', controller.deleteUser)
+Router.delete('/:id', controller.deleteUser)
