@@ -27,7 +27,16 @@ const taskSchema = new Schema(
     reviewed: {
       type: Boolean,
       default: false
+    },
+    dateCreated: {
+      type: Date,
+      required: false,
+    },
+    dateDue: {
+      type: Date,
+      required: false,
     }
+
   },
   { timestamps: true }
 )
