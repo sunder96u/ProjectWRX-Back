@@ -1,5 +1,6 @@
 const { Team } = require('../models')
 
+//GET all teams
 const getAllTeams = async (req, res) => {
     try {
         const teams = await Team.find()
@@ -9,13 +10,14 @@ const getAllTeams = async (req, res) => {
     }
 }
 
-
+//GET teams by team name
 const getTeamByName = async (req, res) => {
     try {
-        let {id} = req.params
-        const selectedTeam = await Team.find({team: id})
-        if (!selectedTeam) throw Error('Team not found.')
-        res.status(200).json(selectedTeam)
+        const name = req.params.name
+        const regex = new RegExp(name, 'i')
+        const team = await Team.find({ name: regex})
+        if (!team) throw Error('Team not found.')
+        res.status(200).json(team)
     } catch (e) {
         res.status(400).send(e.message)
     }
