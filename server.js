@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const PORT = process.env.PORT || 3001
+const AppRouter = require('./routes/appRouter')
 const db = require('./db')
 const logger = require('morgan')
 const session = require('express-session')
@@ -34,4 +35,7 @@ app.use(function (req, res, next) {
 app.get('/', (req, res) => {
       res.send(`Hello world`)
 })
+
+app.use('/api', AppRouter)
+
 app.listen(PORT, () => console.log(`Server running on ${PORT}`))
