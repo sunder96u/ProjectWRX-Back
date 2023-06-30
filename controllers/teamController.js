@@ -24,7 +24,8 @@ const getTeamByName = async (req, res) => {
 
 const createTeam = async (req, res) => {
     try {
-        const team = await new Team(req.body)
+        
+        const team = new Team(req.body) //may need an "await" before new
         await team.save()
         return res.status(201).json({
             team,
