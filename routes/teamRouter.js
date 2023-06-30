@@ -20,7 +20,7 @@ Router
     
 
     //Update Team:
-    //http://localhost:3001/team/:id
+    //http://localhost:3001/teams/:id
     .put('/:id', controller.updateTeam)
 
 
