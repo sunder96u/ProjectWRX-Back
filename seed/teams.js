@@ -1,5 +1,5 @@
 const db = require('../db')
-const { Team, User, Project } = require('../models')
+const { Team } = require('../models')
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
@@ -13,8 +13,13 @@ const main = async () => {
             memberAdmin: null,
         }]
 
+        await Team.insertMany(team)
+      console.log('Teams created successfully!')
+
 }
+
 const run = async () => {
     await main()
     db.close()
 }
+run()
