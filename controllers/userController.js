@@ -4,7 +4,7 @@ const { User } = require('../models')
 const allUsers = async (req, res) => {
       try {
             const users = await User.find()
-            if(!user) throw Error ('User not found')
+            if(!users) throw Error ('User not found')
             res.status(200).json(users)
       } catch (e) {
             console.log(e)
