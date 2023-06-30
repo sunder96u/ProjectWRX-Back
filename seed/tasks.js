@@ -38,4 +38,11 @@ const main = async () => {
             dateDue: new Date(`06-29-2023`)
         },
     ]
+    await Task.insertMany(user)
+    console.log(`Tasks created successfully`)
+}
+
+const run = async () => {
+    await main()
+    db.close()
 }
