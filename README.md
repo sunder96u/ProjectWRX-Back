@@ -1,7 +1,4 @@
-# ProjectWRX-Back
-Backend for ProjectWRX
+# ProjectNexus-Back
+Backend for ProjectNexus
 
-Front end for ProjectWRX:
-https://github.com/sunder96u/ProjectWRX-Front
-
-Project Details are located on ProjectWRX-Front
+A collaborative project between Ashlan Filbrun, Chris Morales, Ron Rose, and Steven Underwood.
