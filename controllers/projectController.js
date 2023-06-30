@@ -49,7 +49,7 @@ const updateProjectById = async (req, res) => {
 const deleteProjectById = async (req, res) => {
     try {
         const { id } = req.params
-        const deleteProject = await Project.findByIdAndDelete
+        const deleteProject = await Project.findByIdAndDelete(id)
         if(!deleteProject) throw Error(`Project not deleted`)
         res.json(deleteProject)
     }catch (e){
