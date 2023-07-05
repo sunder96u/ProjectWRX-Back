@@ -34,7 +34,7 @@ const taskSchema = new Schema(
     },
     dateDue: {
       type: Date,
-      required: false,
+      required: true,
     }
 
   },
