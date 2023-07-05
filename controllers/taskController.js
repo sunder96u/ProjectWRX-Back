@@ -59,10 +59,39 @@ const deleteTaskById = async (req, res) => {
     }
 }
 
+//Get all tasks by user that are complete
+const getCompleteTask = async (req, res) => {
+    try {
+        const { id } = req.params
+        const completedTasks = await Task.find({userId: id}, { completed: true})
+        if(!completedTasks) throw Error('No Completed Tasks Found')
+        console.log(completedTasks)
+    }catch (e) {
+        console.log(e)
+        res.send('No Completed Tasks Found')
+    }
+}
+
+//Get all tasks by user that are not complete
+
+const getNotCompleteTask = async (req, res) => {
+    try {
+        const { id } = req.params
+        const notCompletedTasks = await Task.find({userId: id}, { completed: false})
+        if(!notCompletedTasks) throw Error('No Completed Tasks Found')
+        console.log(notCompletedTasks)
+    }catch (e) {
+        console.log(e)
+        res.send('No Completed Tasks Found')
+    }
+}
+
 module.exports = {
     createTask,
     getTask,
     getTaskById,
     updateTaskById,
-    deleteTaskById
+    deleteTaskById,
+    getCompleteTask,
+    getNotCompleteTask
 }
