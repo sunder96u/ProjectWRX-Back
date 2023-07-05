@@ -25,9 +25,13 @@ const projectSchema = new Schema(
       type: Date,
       required: true,
     },
-    teamLeader: {
+    projectLeader: {
       type: Schema.Types.ObjectId,
-      ref: 'Team Leader'
+      ref: 'User'
+    },
+    projectMembers: {
+      type: Schema.Types.ObjectId, 
+      ref: 'User'
     }
   },
   { timestamps: true }

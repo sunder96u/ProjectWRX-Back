@@ -1,4 +1,4 @@
-const { Project } = require(`../models`)
+const { Project, User } = require(`../models`)
 
 // CREATE PROJECT
 const createProject = async (req, res) => {
@@ -8,7 +8,7 @@ const createProject = async (req, res) => {
         taskId: req.body.taskId,
         dateCreated: req.body.dateCreated,
         dateDue: req.body.dateDue,
-        teamLeader: req.body.teamLeader
+        projectLeader: req.body.projectLeader
     })
     res.json(newProject)
 }
@@ -20,13 +20,13 @@ const getProject = async (req, res) => {
 }
 
 // FIND PROJECT BY ID
-const getProjectsById = async (req, res) => {
+const getProjectById = async (req, res) => {
     try {
         const { id } = req.params
         const findProjectId = await Project.findById(id)
         if(!findProjectId) throw Error(`Project not found`)
         res.json(findProjectId)
-    } catch (e){
+    }catch (e){
         console.log(e)
         res.send(`Project not found`)
     }
@@ -35,8 +35,7 @@ const getProjectsById = async (req, res) => {
 // UPDATE PROJECT BY ID
 const updateProjectById = async (req, res) => {
     try {
-        const { id } = req.params
-        const updateProject = await Project.findByIdAndUpdate(id)
+        const updateProject = await Project.findByIdAndUpdate(req.query.projectId, {[req.query.whatToUpdate]: req.query.update})
         if(!updateProject) throw Error(`Project not updated`)
         res.json(updateProject)
     }catch (e){
@@ -58,13 +57,52 @@ const deleteProjectById = async (req, res) => {
     }
 }
 
+// GET PROJECT LEADER BY ID
+const getProjectLeaderById = async (req, res) => {
+    try {
+        const { id } = req.params
+        const findProjectLeaderId = await Project.findById(id)
+        if(!findProjectLeaderId) throw Error(`Project leader not found`)
+        res.json(findProjectLeaderId)
+    } catch (e){
+        console.log(e)
+        res.send(`Project leader not found`)
+    }
+}
 
+// UPDATE PROJECT LEADER BY ID
+const updateProjectLeaderById = async (req, res) => {
+    try {
+        const updateProjectLeader = await User.findByIdAndUpdate(req.query.projectId, {[req.query.whatToUpdate]: req.query.update})
+        if(!updateProjectLeader) throw Error(`Project leader not updated`)
+        res.json(updateProjectLeader)
+    }catch (e){
+        console.log(e)
+        res.send(`Project leader not updated`)
+    }
+}
+
+// DELETE PROJECT LEADER BY ID
+const deleteProjectLeaderById = async (req, res) => {
+    try {
+        const { id } = req.params
+        const deleteProjectLeader = await Project.findByIdAndDelete(id)
+        if(!deleteProjectLeader) throw Error(`Project leader not deleted`)
+        res.json(deleteProjectLeader)
+    }catch (e){
+        console.log(e)
+        res.send(`Project leader not deleted`)
+    }
+}
 
 // EXPORT
 module.exports = {
     createProject,
     getProject,
-    getProjectsById,
+    getProjectById,
     updateProjectById,
-    deleteProjectById
+    deleteProjectById,
+    getProjectLeaderById,
+    updateProjectLeaderById,
+    deleteProjectLeaderById
 }
