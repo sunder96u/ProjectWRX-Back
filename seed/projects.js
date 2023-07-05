@@ -11,7 +11,7 @@ const main = async () => {
                   taskId: '',
                   dateCreated: '', 
                   dateDue: '', 
-                  teamLeader: '', 
+                  projectLeader: '', 
             },
             {
                 name: 'Sept 23 Cover', 
@@ -19,7 +19,7 @@ const main = async () => {
                 taskId: '',
                 dateCreated: '', 
                 dateDue: '', 
-                teamLeader: '', 
+                projectLeader: '', 
             }
         ]
       await Project.insertMany(project)
