@@ -46,7 +46,6 @@ const updateTaskById = async (req, res) => {
     }
 }
 
-
 //DELETE A TASK BY ID
 const deleteTaskById = async (req, res) => {
     try {
@@ -59,10 +58,6 @@ const deleteTaskById = async (req, res) => {
         res.send(`Task not deleted`)
     }
 }
-
-
-
-
 
 module.exports = {
     createTask,
