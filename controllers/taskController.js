@@ -30,20 +30,19 @@ const getTaskById = async (req, res) => {
         res.json(findTaskId)
     }catch (e){
         console.log(e)
-        res.send(`task not found!`)
+        res.send(`Task not found!`)
     }
 }
 
 //UPDATE A TASK BY ID
 const updateTaskById = async (req, res) => {
     try {
-        const { id } = req.params
-        const updateTask = await Task.findByIdAndUpdate(id)
+        const updateTask = await Task.findByIdAndUpdate(req.query.taskId, {[req.query.whatToUpdate]: req.query.update})
         if(!updateTask) throw Error(`Task not updated`)
         res.json(updateTask)
     }catch (e){
         console.log(e)
-        res.send(`task not updated`)
+        res.send(`Task not updated`)
     }
 }
 
@@ -57,7 +56,7 @@ const deleteTaskById = async (req, res) => {
         res.json(deleteTask)
     }catch (e){
         console.log(e)
-        res.send(`task not deleted`)
+        res.send(`Task not deleted`)
     }
 }
 
