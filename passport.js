@@ -1,7 +1,8 @@
 const passport = require('passport')
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
 const User = require('./models/user')
-require('dotenv')
+
+console.log(process.env.GOOGLE_CLIENT_ID)
 
 
 passport.use(new GoogleStrategy(
@@ -10,7 +11,7 @@ passport.use(new GoogleStrategy(
         clientSecret: process.env.GOOGLE_SECRET,
         callbackURL: process.env.GOOGLE_CALLBACK
     },
-
+        
     async function(accessToken, refreshToken, profile, cb) {
         try {
             console.log(profile.id)
