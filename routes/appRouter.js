@@ -20,13 +20,13 @@ Router.get('/auth/google', passport.authenticate(
 Router.get('/oauth2callback', passport.authenticate(
     'google',
     {
-        successRedirect: '/user',
-        failureRedirect: '/user'
+        successRedirect: '/api',
+        failureRedirect: '/api'
     }
 ))
 Router.get('/logout', function(req, res){
     req.logout(function() {
-        res.redirect('/user')
+        res.redirect('/api')
     })
 })
 
