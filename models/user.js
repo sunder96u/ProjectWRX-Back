@@ -39,9 +39,13 @@ const userSchema = new Schema(
     },
     birthday: {
       type: Date
+    },
+    googleId: {
+      type: String,
     }
   },
   { timestamps: true }
 )
 
 module.exports = userSchema
+

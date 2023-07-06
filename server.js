@@ -8,6 +8,9 @@ const session = require('express-session')
 const cookieParser = require('cookie-parser')
 const path = require('path')
 const passport = require('passport')
+require('dotenv')
+require('./db')
+require('./passport')
 
 const app = express()
 

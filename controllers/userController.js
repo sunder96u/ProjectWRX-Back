@@ -56,7 +56,7 @@ const findUserByEmail = async (req, res) => {
 // Create a New User 
 const createUser = async (req, res) => {
       try {
-            const { firstName, lastName, email, picture, username, password, birthday } = req.body
+            const { firstName, lastName, email, picture, username, password, birthday, googleId } = req.body
 
             const existingUser = await User.findOne({ $or: [{ username }, { email }] })
 
@@ -72,6 +72,7 @@ const createUser = async (req, res) => {
                   username, 
                   password, 
                   birthday,
+                  googleId
             })
 
             const savedUser = await newUser.save()
