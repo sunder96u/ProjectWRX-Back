@@ -3,9 +3,6 @@ const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
 const User = require('./models/user')
 require('dotenv')
 
-console.log(process.env.GOOGLE_CLIENT_ID)
-
-
 passport.use(new GoogleStrategy(
     {
         clientID: process.env.GOOGLE_CLIENT_ID,
@@ -15,9 +12,7 @@ passport.use(new GoogleStrategy(
         
     async function(accessToken, refreshToken, profile, cb) {
         try {
-            console.log(profile.id)
             let user = await User.findOne({ googleId: profile.id})
-            console.log(`google hit`)
             if (user) return cb(null, user)
 
             user = await User.create({
@@ -28,7 +23,6 @@ passport.use(new GoogleStrategy(
             })
             return cb(null, user)
         } catch (err) {
-            console.log(`error in async function`)
             return cb(err)
         }
     }
