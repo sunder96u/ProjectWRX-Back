@@ -9,20 +9,22 @@ const main = async () => {
             {
                   firstName: 'firstSample1', 
                   lastName: 'lastSample1', 
-                  email: 'emailSample1@gmail.com',
+                  email: 'sample@mailinator.com',
                   picture: '', 
-                  username: 'sample1', 
+                  username: 'IamAUser', 
                   password: 'sample1', 
-                  birthday: new Date('1987-03-20')
+                  birthday: new Date('1987-03-20'),
+                  googleId: 1
             },
             {
                   firstName: 'firstSample2', 
                   lastName: 'lastSample2', 
-                  email: 'emailSample2@gmail.com',
+                  email: 'wowwhatanemail@email.com',
                   picture: '', 
-                  username: 'sample2', 
+                  username: 'IAmBetterUser', 
                   password: 'sample2', 
-                  birthday: new Date('1987-03-20')
+                  birthday: new Date('1987-03-20'),
+                  googleId: 0
             }
             
       ]

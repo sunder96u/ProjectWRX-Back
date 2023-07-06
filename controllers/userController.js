@@ -39,6 +39,20 @@ const findUserByName = async (req, res) => {
       }
 }
 
+// Find User By Username
+const findUserByUsername = async (req, res) => {
+      try {
+            const name = req.params.username
+            const regex = new RegExp(name, 'i')
+            const user = await User.find({ username: regex })
+            if (!user) throw Error ('User not found')
+            res.status(200).json(user)
+      } catch (e) {
+            console.log(e)
+            res.status(500).send('User not found')
+      }
+}
+
 // Find User By Email 
 const findUserByEmail = async (req, res) => {
       try {
@@ -159,5 +173,6 @@ module.exports = {
       findUserByEmail,
       createUser, 
       deleteUser, 
-      updateUser
+      updateUser,
+      findUserByUsername
 }

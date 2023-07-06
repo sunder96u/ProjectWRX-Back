@@ -10,6 +10,7 @@ const path = require('path')
 const passport = require('passport')
 
 
+
 const app = express()
 
 app.use(cors({
@@ -27,8 +28,8 @@ app.use(session({
       saveUninitialized: true
 }))
 
-//app.use(passport.initialize())
-//app.use(passport.session())
+app.use(passport.initialize())
+app.use(passport.session())
 
 app.use(function (req, res, next) {
       res.locals.user = req.user
