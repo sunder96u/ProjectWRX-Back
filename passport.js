@@ -1,6 +1,7 @@
 const passport = require('passport')
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
 const User = require('./models/user')
+require('dotenv')
 
 console.log(process.env.GOOGLE_CLIENT_ID)
 
