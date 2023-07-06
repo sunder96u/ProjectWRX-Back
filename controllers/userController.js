@@ -43,8 +43,7 @@ const findUserByName = async (req, res) => {
 const findUserByUsername = async (req, res) => {
       try {
             const name = req.params.username
-            const regex = new RegExp(name, 'i')
-            const user = await User.find({ username: regex })
+            const user = await User.find({ username: name })
             if (!user) throw Error ('User not found')
             res.status(200).json(user)
       } catch (e) {
