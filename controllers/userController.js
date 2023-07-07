@@ -101,9 +101,10 @@ const updateUser = async (req, res) => {
       try {
             const { firstName, lastName, email, picture, username, password, birthday } = req.body
             const userId = req.params.id
-            
+            console.log(userId)
             const user = await User.findById(userId)
             if (!user) {
+                  console.log(userId)
                   return res.status(404).json({ message: "User not found. "})
             }
 
@@ -116,7 +117,7 @@ const updateUser = async (req, res) => {
             user.birthday = birthday || user.birthday 
             
             const updatedUser = await user.save()
-            res.status(200).json({ message: 'User updated successfully', user: user })
+            res.status(200).json({ message: 'User updated successfully', user: updatedUser })
 
       } catch (e) {
             console.log(e)
