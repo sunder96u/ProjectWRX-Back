@@ -116,7 +116,7 @@ const updateUser = async (req, res) => {
             user.birthday = birthday || user.birthday 
             
             const updatedUser = await user.save()
-            res.status(200).json({ message: 'User updated successfully', user: updatedUser })
+            res.status(200).json({ message: 'User updated successfully', user: user })
 
       } catch (e) {
             console.log(e)
