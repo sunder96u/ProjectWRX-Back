@@ -19,7 +19,7 @@ const findUserById = async (req, res) => {
             const user = await User.findById(id)
             if(!user) throw Error ('User not found')
             res.status(200).json(user)
-      } catch {
+      } catch (e) {
             console.log(e)
             res.status(500).send('User not found')
       }
