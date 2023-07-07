@@ -164,8 +164,8 @@ const deleteUser = async (req, res) => {
 // FIND USER BY TEAM
 const findUserByTeam = async (res, req) => {
       try {
-            const teamId = req.params
-            const users = await Team.find(teamId, { member: 1 })
+            const { team } = req.params
+            const users = await Team.find(team, { member: 1 })
             if (!users) {
                   return res.status(404).json({ message: 'Users not found'})
             }
@@ -189,5 +189,6 @@ module.exports = {
       createUser, 
       deleteUser, 
       updateUser,
-      findUserByUsername
+      findUserByUsername,
+      findUserByTeam
 }
