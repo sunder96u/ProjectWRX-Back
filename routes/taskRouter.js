@@ -7,7 +7,7 @@ Router.get(`/`, controller.getTask)
 Router.get(`/:id`, controller.getTaskById)
 Router.put(`/`, controller.updateTaskById)
 Router.delete(`/:id`, controller.deleteTaskById)
-Router.get('/complete/:id', controller.getCompleteTask)
-Router.get('/notComplete/:id', controller.getNotCompleteTask)
+Router.get('/completed/completed', controller.getCompleteTask)
+Router.get('/notCompleted/notCompleted', controller.getNotCompleteTask)
 
 module.exports = Router
