@@ -101,9 +101,10 @@ const updateUser = async (req, res) => {
       try {
             const { firstName, lastName, email, picture, username, password, birthday } = req.body
             const userId = req.params.id
-            
+            console.log(userId)
             const user = await User.findById(userId)
             if (!user) {
+                  console.log(userId)
                   return res.status(404).json({ message: "User not found. "})
             }
 
