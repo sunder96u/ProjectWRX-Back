@@ -14,14 +14,18 @@ const teamSchema = new Schema(
       type: String,
       maxlength: 200
     },
-    member: [{
+    member: [
+      {
       type: Schema.Types.ObjectId,
       ref: 'User' 
-    }],
-    memberAdmin: [{
+      }
+    ],
+    memberAdmin: [
+      {
       type: Schema.Types.ObjectId,
       ref: 'User'
-    }],
+      }
+    ],
     projects: [
       {
         type: Schema.Types.ObjectId,

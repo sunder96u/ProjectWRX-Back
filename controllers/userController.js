@@ -1,4 +1,4 @@
-const { User } = require('../models')
+const { User, Team } = require('../models')
 
 // Find All Users
 const allUsers = async (req, res) => {
@@ -161,6 +161,23 @@ const deleteUser = async (req, res) => {
 //       }
 // }
 
+// FIND USER BY TEAM
+const findUserByTeam = async (res, req) => {
+      try {
+            console.log(req.params)
+            const { team } = req.params.team
+            const users = await Team.find(team)
+            if (!users) {
+                  return res.status(404).json({ message: 'Users not found'})
+            }
+            res.status(200).json(users)
+      } catch (e) {
+            console.log('Error:', e)
+            res.status(500).json({ message: "Internal server error"})
+      }
+
+}
+
 
 
 
@@ -173,5 +190,6 @@ module.exports = {
       createUser, 
       deleteUser, 
       updateUser,
-      findUserByUsername
+      findUserByUsername,
+      findUserByTeam
 }

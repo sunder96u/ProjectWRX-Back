@@ -13,10 +13,12 @@ const projectSchema = new Schema(
       type: String,
       maxlength: 200
     },
-    taskId: {
+    taskId: [
+      {
       type: Schema.Types.ObjectId,
       ref: 'Task' 
-    },
+      }
+    ],
     dateCreated: {
       type: Date,
       required: false,
@@ -29,10 +31,12 @@ const projectSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: 'User'
     },
-    projectMembers: {
+    projectMembers: [
+      {
       type: Schema.Types.ObjectId, 
       ref: 'User'
     }
+    ]
   },
   { timestamps: true }
 )
