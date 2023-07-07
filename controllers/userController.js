@@ -164,7 +164,8 @@ const deleteUser = async (req, res) => {
 // FIND USER BY TEAM
 const findUserByTeam = async (res, req) => {
       try {
-            const { team } = req.params
+            console.log(req.params)
+            const { team } = req.params.team
             const users = await Team.find(team, { member: 1 })
             if (!users) {
                   return res.status(404).json({ message: 'Users not found'})
