@@ -17,4 +17,6 @@ Router.delete('/:id', controller.deleteUser)
 
 Router.get('/username/:username', controller.findUserByUsername)
 
+Router.get('/team/:teamId', controller.findUserByTeam)
+
 module.exports = Router
