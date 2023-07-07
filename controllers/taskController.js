@@ -17,7 +17,7 @@ const createTask = async (req,res) => {
 
 // FIND ALL TASKS
 const getTask = async (req, res) => {
-    const specificTask = await Task.find({})
+    const specificTask = await Task.find({}).populate('userId')
     res.status(200).json(specificTask)
 }
 

@@ -15,7 +15,7 @@ const getTeamByName = async (req, res) => {
     try {
         const name = req.params.name
         const regex = new RegExp(name, 'i')
-        const team = await Team.find({ name: regex}).populate('member')
+        const team = await Team.find({ name: regex}).populate('member').populate('memberAdmin').populate('projects')
         if (!team) throw Error('Team not found.')
         res.status(200).json(team)
     } catch (e) {
