@@ -14,10 +14,10 @@ const teamSchema = new Schema(
       type: String,
       maxlength: 200
     },
-    member: {
+    member: [{
       type: Schema.Types.ObjectId,
       ref: 'User' 
-    },
+    }],
     memberAdmin: [{
       type: Schema.Types.ObjectId,
       ref: 'User'
