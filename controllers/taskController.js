@@ -65,6 +65,7 @@ const getCompleteTask = async (req, res) => {
         const completedTasks = await Task.find({ completed: true})
         if(!completedTasks) throw Error('No Completed Tasks Found')
         console.log(completedTasks)
+        res.status(200).json(completedTasks)
     }catch (e) {
         console.log(e)
         res.send('No Completed Tasks Found')
@@ -78,6 +79,7 @@ const getNotCompleteTask = async (req, res) => {
         const notCompletedTasks = await Task.find({ completed: false})
         if(!notCompletedTasks) throw Error('No Tasks Found')
         console.log(notCompletedTasks)
+        res.status(200).json(notCompletedTasks)
     }catch (e) {
         console.log(e)
         res.send('No Tasks Found')
