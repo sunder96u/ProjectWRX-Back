@@ -23,7 +23,7 @@ const getTeamByName = async (req, res) => {
     }
 }
 
-
+//Create team
 const createTeam = async (req, res) => {
     try {
         
@@ -37,7 +37,7 @@ const createTeam = async (req, res) => {
     }
 }
 
-
+//Update team
 const updateTeam = async (req, res) => {
     try {
         let { id } = req.params
@@ -51,7 +51,7 @@ const updateTeam = async (req, res) => {
     }
 }
 
-
+//Delete team
 const deleteTeam = async (req, res) => {
     try {
         const { id } = req.params
