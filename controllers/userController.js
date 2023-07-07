@@ -166,7 +166,7 @@ const findUserByTeam = async (res, req) => {
       try {
             console.log(req.params)
             const { team } = req.params.team
-            const users = await Team.find(team, { member: 1 })
+            const users = await Team.find(team)
             if (!users) {
                   return res.status(404).json({ message: 'Users not found'})
             }
