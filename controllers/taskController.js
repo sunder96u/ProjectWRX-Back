@@ -76,11 +76,11 @@ const getCompleteTask = async (req, res) => {
 const getNotCompleteTask = async (req, res) => {
     try {
         const notCompletedTasks = await Task.find({ completed: false})
-        if(!notCompletedTasks) throw Error('No Completed Tasks Found')
+        if(!notCompletedTasks) throw Error('No Tasks Found')
         console.log(notCompletedTasks)
     }catch (e) {
         console.log(e)
-        res.send('No Completed Tasks Found')
+        res.send('No Tasks Found')
     }
 }
 
