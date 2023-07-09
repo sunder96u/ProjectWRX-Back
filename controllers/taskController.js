@@ -76,6 +76,8 @@ const getCompleteTask = async (req, res) => {
 
 const getNotCompleteTask = async (req, res) => {
     try {
+        const projId = req.params
+        console.log(projId)
         const notCompletedTasks = await Task.find({ completed: false})
         if(!notCompletedTasks) throw Error('No Tasks Found')
         console.log(notCompletedTasks)
@@ -84,6 +86,26 @@ const getNotCompleteTask = async (req, res) => {
         console.log(e)
         res.send('No Tasks Found')
     }
+}
+
+const getCompletedTaskByProjectId = async (req, res) => {
+    try {
+
+    } catch (e) {
+        console.log(e)
+        res.send('No Tasks Found')
+    }
+
+}
+
+const getNotCompleteTaskByProjectId = async (req, res) => {
+    try {
+
+    } catch (e) {
+        console.log(e)
+        res.send('No Tasks Found')
+    }
+
 }
 
 module.exports = {
