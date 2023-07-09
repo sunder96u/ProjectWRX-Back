@@ -29,8 +29,8 @@ const findUserById = async (req, res) => {
 const findUserByName = async (req, res) => {
       try {
             const name = req.params.name
-            const regex = new RegExp(name, 'i') // 'i' flag makes the search case-insensitive
-            const user = await User.find({ name: regex })
+            //const regex = new RegExp(name, 'i') // 'i' flag makes the search case-insensitive
+            const user = await User.find({ name: name })
             if (!user) throw Error('User not found')
             res.status(200).json(user)
       } catch (e) {

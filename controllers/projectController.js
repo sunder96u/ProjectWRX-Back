@@ -15,8 +15,8 @@ const createProject = async (req, res) => {
 
 // FIND PROJECT
 const getProject = async (req, res) => {
-    const findProject = await Project.find({}).populate('member', 'taskId')
-    res.json(findProject) //sends results in a json format
+    const findProject = await Project.find({}).populate('projectMembers', 'taskId', 'teamLeader')
+    return res.json(findProject) //sends results in a json format
 }
 
 // FIND PROJECT BY ID
