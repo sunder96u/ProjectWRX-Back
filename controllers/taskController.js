@@ -87,26 +87,6 @@ const getNotCompleteTask = async (req, res) => {
     }
 }
 
-const getCompletedTaskByProjectId = async (req, res) => {
-    try {
-
-    } catch (e) {
-        console.log(e)
-        res.send('No Tasks Found')
-    }
-
-}
-
-const getNotCompleteTaskByProjectId = async (req, res) => {
-    try {
-
-    } catch (e) {
-        console.log(e)
-        res.send('No Tasks Found')
-    }
-
-}
-
 module.exports = {
     createTask,
     getTask,
