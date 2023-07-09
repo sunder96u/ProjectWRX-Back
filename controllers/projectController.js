@@ -19,6 +19,18 @@ const getProject = async (req, res) => {
     return res.json(findProject) //sends results in a json format
 }
 
+// FIND PROJECT BY NAME
+const getProjectByName = async (req, res) => {
+    try {
+        const { name } = req.params
+        const findProjectByName = await Project.find({ name: name})
+        if (!findProjectByName) throw Error('Project not found')
+        res.json(findProjectByName)
+    } catch (e) {
+        res.send('Project Not Found')
+    }
+}
+
 // FIND PROJECT BY ID
 const getProjectById = async (req, res) => {
     try {
@@ -104,5 +116,6 @@ module.exports = {
     deleteProjectById,
     getProjectLeaderById,
     updateProjectLeaderById,
-    deleteProjectLeaderById
+    deleteProjectLeaderById,
+    getProjectByName
 }

@@ -62,7 +62,7 @@ const deleteTaskById = async (req, res) => {
 //Get all tasks by user that are complete
 const getCompleteTask = async (req, res) => {
     try {
-        const completedTasks = await Task.find({ completed: true})
+        const completedTasks = await Task.find({completed: true})
         if(!completedTasks) throw Error('No Completed Tasks Found')
         console.log(completedTasks)
         res.status(200).json(completedTasks)
