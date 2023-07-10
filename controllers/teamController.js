@@ -65,11 +65,22 @@ const deleteTeam = async (req, res) => {
     }
 }
 
+const updateTeamProject = async (req, res) => {
+    try {
+        const update = await Team.findByIdAndUpdate(req.query.id, {[req.query.whatToUpdate]: req.query.update})
+        if(!update) throw Error(`Task not updated`)
+        res.json(update)
+    } catch (e) {
+        return res.status(500).send(error.message)
+    }
+}
+
 
 module.exports = {
     getAllTeams,
     getTeamByName,
     createTeam,
     updateTeam,
-    deleteTeam
+    deleteTeam,
+    updateTeamProject
 }

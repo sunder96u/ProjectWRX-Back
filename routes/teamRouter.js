@@ -26,6 +26,10 @@ Router.put('/:id', controller.updateTeam)
     //http://localhost:3001/:id
 Router.delete('/:id', controller.deleteTeam)
 
+    //Update Team Project
+    //http://localhost:3001/update?id=""?whatToUpdate=projects&update=projectId
+Router.put('/update/'. controller.updateTeamProject)
+
 module.exports = Router
 
 
