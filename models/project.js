@@ -13,6 +13,12 @@ const projectSchema = new Schema(
       type: String,
       maxlength: 200
     },
+    teamId: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Team"
+      }
+    ],
     taskId: [
       {
       type: Schema.Types.ObjectId,

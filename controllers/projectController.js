@@ -8,7 +8,8 @@ const createProject = async (req, res) => {
         taskId: req.body.taskId,
         dateCreated: req.body.dateCreated,
         dateDue: req.body.dateDue,
-        projectLeader: req.body.projectLeader
+        projectLeader: req.body.projectLeader,
+        teamId: req.body.teamId
     })
     res.json(newProject)
 }
